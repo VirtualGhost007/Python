@@ -8,10 +8,22 @@ b=int(input('Enter second number: '))
 Ans1=a+b
 Ans2=a-b
 Ans3=a*b
-Ans4=a/b
-Ans5=a%b
+if (a==1):
+    if (b==0):
+        Ans4='Undefined'
+else:
+    Ans4=a/b    
+if (a==1):
+    if (b==0):
+        Ans5='Undefined'
+else:
+    Ans5=a%b    
+if (a==1):
+    if(b==0):
+        Ans7='Undefined'
+else:
+    Ans7=a//b    
 Ans6=a**b
-Ans7=a//b
 
 # Result output
 print('Add of',a,'and',b,'is',Ans1)
