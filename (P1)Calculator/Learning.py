@@ -1,84 +1,75 @@
 # Asking for input from user
-a=int(input('Enter first number: '))
-b=int(input('Enter second number: '))
+def main():
+    a=input("Enter the expression: ")
+    if a == "X" or a == "x":
+        exit
+         
+    elif " " not in a:
+        factorial_res=factorial(float(a))
+        print("Factorial of",a,"is",factorial_res)
+    
+    else:
+        x,y,z=a.split(" ")
+        if y == "+":
+            Sum(x,z)
+        elif y == "-":
+            Sub(x,z)
+        elif y == "*":
+            Multiply(x,z)
+        elif y == "/":
+            Divide(x,z)
+        elif y == "**":
+            Exponential(x,z)
+        elif y == "//":
+            Floor_Divide(x,z)
+        elif y == "%":
+            Modulus(x,z)
+        else:
+            print("Wrong operator given")
 
 # Now will make a normal calculator
-def Sum(a,b):
-    Ans1=a+b
-    print('Sum of',a,'and',b,'is',Ans1)
-def Sub(a,b):
-    Ans2=a-b
-    print('Subtraction of',a,'and',b,'is',Ans2)
-def Multiply(a,b):
-    Ans3=a*b
-    print('Multiply of',a,'and',b,'is',Ans3)
-def Divide(a,b):
-    if (a==1):
-        if (b==0):
-            Ans4='Undefined'
-            print('Division of',a,'and',b,'is',Ans4)
+
+def Sum(x,z):
+        print("Addition of",x,"and",z,"is",float(x) + float(z))
+
+def Sub(x,z):
+
+        print("Subtraction of",x,"and",z,"is",float(x) - float(z))
+
+def Multiply(x,z):
+
+        print("Multiplication of",x,"and",z,"is",float(x) * float(z))
+
+def Divide(x,z):
+    if z != 0:
+        print("Division of",x,"and",z,"is",float(x) / float(z))
     else:
-        Ans4=a/b
-        print('Division of',a,'and',b,'is',Ans4)
+        print("Undefined")
         
-def Modulus(a,b):
-    if (a==1):
-        if (b==0):
-            Ans5='Undefined'
-            print('Modulus of',a,'and',b,'is',Ans5)
+        
+def Modulus(x,z):
+    if z != 0:
+        print("Remainder of",x,"and",z,"is",float(x) % float(z))
     else:
-        Ans5=a%b
-        print('Modulus of',a,'and',b,'is',Ans5)
+        print("Undefined")
+
     
-def Exponential(a,b):
-    Ans6=a**b
-    print('Exponential of',a,'and',b,'is',Ans6)
-def Floor_Divide(a,b):
-    if (a==1):
-        if(b==0):
-            Ans7='Undefined'
-            print('Floor division of',a,'and',b,'is',Ans7)
+def Exponential(x,z):
+
+        print("Exponential of",x,"and",z,"is",float(x) ** float(z))
+
+
+def Floor_Divide(x,z):
+    if z != 0:
+        print("GIF of",x,"and",z,"is",float(x) // float(z))
     else:
-        Ans7=a//b
-        print('Floor division of',a,'and',b,'is',Ans7)
+        print("Undefined")
 
+def factorial(x):
+    if x < 0:
+        exit
 
-# Result output
-print('Available operators are Add/add/Sub/sub/Multiply/multiply/Divide/divide/Modulus/modulus/Exponential/exponential/Floor division/floor division/floor/Floor')
-c=input('Enter the operation to be performed: ')
-
-def Operator(c):
-    if  (c=='Add'):
-        Sum(a,b)
-    elif(c=='add'):
-        Sum(a,b)
-    elif(c=='Sub'):
-        Sub(a,b)
-    elif(c=='sub'):
-        Sub(a,b)
-    elif(c=='Multiply'):
-        Multiply(a,b)
-    elif(c=='multiply'):
-        Multiply(a,b)
-    elif(c=='Divide'):
-        Divide(a,b)
-    elif(c=='divide'):
-        Divide(a,b)
-    elif(c=='Modulus'):
-        Modulus(a,b)
-    elif(c=='modulus'):
-        Modulus(a,b)
-    elif(c=='Exponential'):
-        Exponential(a,b)
-    elif(c=='exponential'):
-        Exponential(a,b)
-    elif(c=='Floor divide'):
-        Floor_Divide(a,b)
-    elif(c=='floor divide'):
-        Floor_Divide(a,b)
-    elif(c=='Floor'):
-        Floor_Divide(a,b)
-    elif(c=='floor'):
-        Floor_Divide(a,b)
-
-Operator(c)
+    else:   
+        return 1 if x == 0 or x == 1 else x*factorial(x-1)
+    
+main()
